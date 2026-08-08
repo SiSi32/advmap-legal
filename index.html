@@ -3,139 +3,427 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ADVMAP</title>
-<meta name="description" content="ADVMAP — partage et découvre des traces moto et trail GPX." />
+<title>ADVMAP — Partage et découvre des traces moto &amp; trail</title>
+<meta name="description" content="ADVMAP : partage tes traces GPX, découvre celles des autres, organise des sorties. L'app pour les motards trail et les explorateurs de chemins." />
 <meta property="og:title" content="ADVMAP" />
-<meta property="og:description" content="Partage et découvre des traces moto et trail GPX." />
+<meta property="og:description" content="Partage et découvre des traces moto &amp; trail GPX." />
 <meta property="og:type" content="website" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23E0451A'/%3E%3Cpath d='M9 22l5-11 3 6 2-4 4 9' stroke='white' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+<meta name="theme-color" content="#0B0C0D" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23FF6A00'/%3E%3Cpath d='M9 22l5-11 3 6 2-4 4 9' stroke='%230B0C0D' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Exo+2:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root { color-scheme: light dark; }
+  :root {
+    --bg: #0B0C0D;
+    --surface: #16171A;
+    --surface2: #1C1D21;
+    --border: #2A2B2E;
+    --text: #F5F4F1;
+    --text2: #9A9A8A;
+    --text3: #6A6B70;
+    --accent: #FF6A00;
+    --accent2: #FF8A33;
+    --on-accent: #0B0C0D;
+    --success: #7CB342;
+    --danger: #D64545;
+    --purple: #B07CD9;
+    --blue: #2D9CDB;
+  }
   * { box-sizing: border-box; }
-  html, body { height: 100%; }
+  html { scroll-behavior: smooth; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 0;
-    padding: 32px 20px;
-    line-height: 1.6;
-    color: #17181a;
-    background: #f5f5f4;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+    overflow-x: hidden;
   }
-  @media (prefers-color-scheme: dark) {
-    body { color: #eceef0; background: #0e0f11; }
-    .card { background: #1a1b1e; border-color: #2a2c30; }
-    .row:hover, .row:active { background: rgba(255,255,255,0.05); }
-    .tag { color: #9aa0a6; }
-    .arrow { color: #6b7075; }
-    footer { color: #6b7075; }
+  h1, h2, h3, .display { font-family: 'Exo 2', sans-serif; letter-spacing: -0.02em; }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- nav ---------- */
+  nav.top {
+    position: sticky; top: 0; z-index: 20;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 24px;
+    background: rgba(11,12,13,0.75);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
   }
-  main { width: 100%; max-width: 400px; text-align: center; }
-  .mark {
-    width: 76px;
-    height: 76px;
-    margin: 0 auto 22px;
-    border-radius: 20px;
-    background: linear-gradient(150deg, #ff8a3d, #e0451a);
-    box-shadow: 0 8px 24px -8px rgba(224, 69, 26, 0.55);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  nav.top.scrolled { border-bottom-color: var(--border); }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: 'Exo 2'; font-weight: 800; font-size: 1.05rem; }
+  .brand .mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(150deg, var(--accent2), var(--accent)); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .brand .mark svg { width: 15px; height: 15px; }
+  nav.top .links { display: flex; gap: 28px; font-size: 0.88rem; font-weight: 600; color: var(--text2); }
+  nav.top .links a { text-decoration: none; transition: color 0.15s ease; }
+  nav.top .links a:hover { color: var(--text); }
+  @media (max-width: 640px) { nav.top .links { display: none; } }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative;
+    padding: 96px 24px 64px;
+    text-align: center;
+    overflow: hidden;
   }
-  .mark svg { width: 38px; height: 38px; }
-  h1 {
-    font-size: 1.55rem;
+  .hero-glow {
+    position: absolute; top: -220px; left: 50%; transform: translateX(-50%);
+    width: 900px; height: 500px;
+    background: radial-gradient(ellipse at center, rgba(255,106,0,0.22), transparent 65%);
+    pointer-events: none;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(255,106,0,0.1);
+    border: 1px solid rgba(255,106,0,0.3);
+    color: var(--accent2);
+    font-family: 'Exo 2'; font-weight: 700; font-size: 0.72rem;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 999px;
+    margin-bottom: 26px;
+    animation: fadeUp 0.6s ease both;
+  }
+  .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 1.8s ease-in-out infinite; }
+  h1.hero-title {
+    font-size: clamp(2.4rem, 6vw, 4rem);
     font-weight: 800;
-    margin: 0 0 6px;
-    letter-spacing: -0.4px;
+    margin: 0 0 18px;
+    line-height: 1.05;
+    animation: fadeUp 0.6s ease 0.05s both;
   }
-  .tag {
-    color: #6b7075;
-    font-size: 0.95rem;
-    margin: 0 0 32px;
+  h1.hero-title span { color: var(--accent); }
+  .hero-sub {
+    max-width: 560px; margin: 0 auto 36px;
+    color: var(--text2);
+    font-size: 1.1rem;
+    animation: fadeUp 0.6s ease 0.1s both;
   }
-  .card {
-    text-align: left;
-    background: #ffffff;
-    border: 1px solid #e8e8e7;
+  .hero-ctas {
+    display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+    margin-bottom: 20px;
+    animation: fadeUp 0.6s ease 0.15s both;
+  }
+  .store-pill {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 18px;
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+  .store-pill svg { width: 20px; height: 20px; flex-shrink: 0; }
+  .store-pill .lines { text-align: left; line-height: 1.25; }
+  .store-pill .small { font-size: 0.66rem; color: var(--text3); display: block; }
+  .store-pill .big { font-weight: 700; font-size: 0.85rem; display: block; }
+  .hero-note { color: var(--text3); font-size: 0.82rem; animation: fadeUp 0.6s ease 0.2s both; }
+
+  /* ---------- phone mock ---------- */
+  .phone-scene {
+    display: flex; justify-content: center; margin-top: 56px;
+    animation: fadeUp 0.7s ease 0.25s both;
+  }
+  .phone {
+    width: 260px; height: 540px;
+    background: #101114;
+    border: 6px solid #26282c;
+    border-radius: 42px;
+    box-shadow: 0 40px 80px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.02);
+    overflow: hidden;
+    position: relative;
+  }
+  .phone-notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 90px; height: 22px; background: #101114; border-bottom-left-radius: 14px; border-bottom-right-radius: 14px; z-index: 3; }
+  .phone-screen { position: absolute; inset: 0; background: linear-gradient(180deg, #14161a 0%, #0d0e10 100%); }
+  .phone-map { position: absolute; inset: 0; }
+  .phone-map svg { width: 100%; height: 100%; }
+  .phone-topbar { position: absolute; top: 30px; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: center; z-index: 2; }
+  .phone-pill { background: rgba(22,23,26,0.9); border: 1px solid var(--border); border-radius: 999px; padding: 6px 12px; font-size: 0.62rem; font-weight: 700; color: var(--text2); }
+  .phone-card { position: absolute; left: 14px; right: 14px; bottom: 18px; background: rgba(22,23,26,0.95); border: 1px solid var(--border); border-radius: 16px; padding: 14px; z-index: 2; backdrop-filter: blur(6px); }
+  .phone-card .row1 { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  .phone-card .title { font-family: 'Exo 2'; font-weight: 700; font-size: 0.78rem; color: var(--text); }
+  .phone-card .diff { background: rgba(255,106,0,0.15); color: var(--accent2); font-size: 0.58rem; font-weight: 700; padding: 3px 8px; border-radius: 999px; }
+  .phone-card .stats { display: flex; gap: 14px; }
+  .phone-card .stat { text-align: left; }
+  .phone-card .stat b { display: block; font-size: 0.82rem; font-family: 'Exo 2'; }
+  .phone-card .stat span { font-size: 0.6rem; color: var(--text3); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+  @keyframes dash { to { stroke-dashoffset: 0; } }
+
+  /* ---------- features ---------- */
+  section { padding: 84px 0; }
+  .section-head { text-align: center; max-width: 560px; margin: 0 auto 52px; }
+  .section-head .eyebrow-lite { font-family: 'Exo 2'; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent2); margin-bottom: 10px; display: block; }
+  .section-head h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); margin: 0 0 12px; }
+  .section-head p { color: var(--text2); margin: 0; }
+
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 860px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+
+  .feature {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 26px 22px;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.2s ease;
+  }
+  .feature.in { opacity: 1; transform: translateY(0); }
+  .feature:hover { border-color: rgba(255,106,0,0.35); }
+  .feature .icon {
+    width: 42px; height: 42px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 16px;
+  }
+  .feature .icon svg { width: 21px; height: 21px; }
+  .feature h3 { font-size: 1rem; margin: 0 0 8px; }
+  .feature p { font-size: 0.87rem; color: var(--text2); margin: 0; }
+
+  /* ---------- languages strip ---------- */
+  .langs {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+    margin-top: 44px;
+  }
+  .lang-chip {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text2);
+  }
+
+  /* ---------- footer / links cards (kept from before) ---------- */
+  .links-section { padding-top: 0; }
+  .link-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 640px; margin: 0 auto; }
+  @media (max-width: 560px) { .link-cards { grid-template-columns: 1fr; } }
+  .link-card {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 14px;
-    padding: 4px;
-    margin-bottom: 12px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
-  }
-  a.row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px 14px;
+    padding: 16px;
     text-decoration: none;
-    color: inherit;
-    border-radius: 10px;
-    transition: background-color 0.12s ease;
+    transition: border-color 0.15s ease, transform 0.15s ease;
   }
-  .row:hover { background: rgba(0,0,0,0.035); }
-  .row-icon {
-    flex-shrink: 0;
-    width: 34px;
-    height: 34px;
-    border-radius: 9px;
-    background: rgba(224, 69, 26, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .link-card:hover { border-color: rgba(255,106,0,0.4); transform: translateY(-1px); }
+  .link-card .row-icon {
+    flex-shrink: 0; width: 38px; height: 38px; border-radius: 10px;
+    background: rgba(255,106,0,0.12);
+    display: flex; align-items: center; justify-content: center;
   }
-  .row-icon svg { width: 17px; height: 17px; stroke: #e0451a; }
-  .row-text { flex: 1; }
-  .row-title { font-weight: 600; font-size: 0.95rem; }
-  .row-sub { font-size: 0.8rem; color: #8a8f94; margin-top: 1px; }
-  .arrow { color: #b5b8bb; flex-shrink: 0; }
+  .link-card .row-icon svg { width: 18px; height: 18px; stroke: var(--accent2); }
+  .link-card .row-title { font-weight: 700; font-size: 0.92rem; font-family: 'Exo 2'; }
+  .link-card .row-sub { font-size: 0.78rem; color: var(--text3); margin-top: 1px; }
+  .link-card .arrow { margin-left: auto; color: var(--text3); }
+
   footer {
-    margin-top: 28px;
-    font-size: 0.78rem;
-    color: #a3a7ab;
+    padding: 40px 24px 48px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+    color: var(--text3);
+    font-size: 0.82rem;
   }
+  footer .fmark { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px; font-family: 'Exo 2'; font-weight: 700; color: var(--text2); }
+  footer .fmark .dot-sep { width: 3px; height: 3px; border-radius: 50%; background: var(--text3); }
 </style>
 </head>
 <body>
-  <main>
-    <div class="mark">
-      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M6 24l6.5-14 4 8 2.5-5 5 11" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-    <h1>ADVMAP</h1>
-    <p class="tag">Partage et découvre des traces moto &amp; trail GPX</p>
 
-    <div class="card">
-      <a class="row" href="./privacy.html">
-        <span class="row-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/></svg>
-        </span>
-        <span class="row-text">
-          <span class="row-title">Politique de confidentialité</span>
+<nav class="top" id="nav">
+  <div class="brand">
+    <span class="mark"><svg viewBox="0 0 32 32" fill="none"><path d="M6 24l6.5-14 4 8 2.5-5 5 11" stroke="#0B0C0D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    ADVMAP
+  </div>
+  <div class="links">
+    <a href="#features">Fonctionnalités</a>
+    <a href="./privacy.html">Confidentialité</a>
+    <a href="mailto:advmap@sisilab.app">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-glow"></div>
+  <span class="eyebrow"><span class="dot"></span> En développement actif</span>
+  <h1 class="hero-title">Partage tes traces.<br>Découvre les <span>leurs</span>.</h1>
+  <p class="hero-sub">ADVMAP est l'application des motards trail et des explorateurs de chemins : publie tes traces GPX, trouve des itinéraires près de chez toi, organise des sorties avec la communauté.</p>
+
+  <div class="hero-ctas">
+    <div class="store-pill">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17.03 2.94 12.5 4.7 9.39c.87-1.55 2.43-2.53 4.12-2.56 1.28-.02 2.5.86 3.29.86.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.27-2.15 3.79.03 3.02 2.65 4.02 2.68 4.03-.02.07-.42 1.44-1.38 2.92zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      <span class="lines"><span class="small">Bientôt sur</span><span class="big">App Store</span></span>
+    </div>
+    <div class="store-pill">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.9c-.4.3-.6.8-.6 1.4v15.4c0 .6.2 1.1.6 1.4l.1.1L12.4 12v-.2L3.7 2.8l-.1.1z"/><path d="M15.3 14.9l-2.9-2.9v-.2l2.9-2.9 6.5 3.7c.6.3.6.9 0 1.3l-6.5 3z" opacity=".7"/><path d="M15.3 9.1L12.4 12l2.9 2.9.1-.1-.1-5.7z" opacity=".85"/></svg>
+      <span class="lines"><span class="small">Bientôt sur</span><span class="big">Google Play</span></span>
+    </div>
+  </div>
+  <p class="hero-note">Envie de tester en avant-première ? <a href="mailto:advmap@sisilab.app" style="color:var(--accent2); font-weight:600;">Écris-nous →</a></p>
+
+  <div class="phone-scene">
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="phone-map">
+          <svg viewBox="0 0 260 540" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="mapfade" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#171920"/>
+                <stop offset="1" stop-color="#0e0f12"/>
+              </linearGradient>
+            </defs>
+            <rect width="260" height="540" fill="url(#mapfade)"/>
+            <g stroke="#22242a" stroke-width="1">
+              <path d="M0 90 H260 M0 180 H260 M0 270 H260 M0 360 H260 M0 450 H260" />
+              <path d="M40 0 V540 M110 0 V540 M180 0 V540 M240 0 V540" />
+            </g>
+            <path d="M20 470 C 60 420, 40 360, 90 330 S 160 300, 150 240 S 90 190, 120 130 S 220 90, 200 40"
+                  fill="none" stroke="#FF6A00" stroke-width="4" stroke-linecap="round"
+                  stroke-dasharray="1.5 10" />
+            <circle cx="20" cy="470" r="6" fill="#7CB342" stroke="#0B0C0D" stroke-width="2"/>
+            <circle cx="200" cy="40" r="6" fill="#D64545" stroke="#0B0C0D" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="phone-topbar">
+          <span class="phone-pill">◐ Topo</span>
+          <span class="phone-pill">⛰ 1 240 m D+</span>
+        </div>
+        <div class="phone-card">
+          <div class="row1">
+            <span class="title">Col de la Croix&nbsp;de&nbsp;Fer</span>
+            <span class="diff">OFFROAD</span>
+          </div>
+          <div class="stats">
+            <div class="stat"><b>64 km</b><span>Distance</span></div>
+            <div class="stat"><b>1 240 m</b><span>D+</span></div>
+            <div class="stat"><b>3h10</b><span>Durée</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="features">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow-lite">Fonctionnalités</span>
+      <h2>Tout pour préparer et partager tes sorties</h2>
+      <p>Une carte pensée pour le terrain, un fil social pour la communauté, et les outils pour rouler sereinement.</p>
+    </div>
+
+    <div class="grid">
+      <div class="feature">
+        <div class="icon" style="background:rgba(255,106,0,0.14)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FF8A33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20l-5-2V4l5 2 6-2 5 2v14l-5-2-6 2z"/><path d="M9 6v14M15 4v14"/></svg>
+        </div>
+        <h3>Traces GPX partagées</h3>
+        <p>Publie tes itinéraires, télécharge ceux des autres, avec analyse de terrain (route / offroad) automatique.</p>
+      </div>
+      <div class="feature">
+        <div class="icon" style="background:rgba(45,156,219,0.14)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#2D9CDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5-5 18-4-8-9-5z"/></svg>
+        </div>
+        <h3>Mode navigation</h3>
+        <p>Ta position en direct sur la carte, alerte si tu t'écartes du tracé, distance restante affichée en continu.</p>
+      </div>
+      <div class="feature">
+        <div class="icon" style="background:rgba(124,179,66,0.14)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7CB342" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Fil social &amp; événements</h3>
+        <p>Publie tes sorties, commente, suis d'autres riders, organise ou rejoins des événements près de chez toi.</p>
+      </div>
+      <div class="feature">
+        <div class="icon" style="background:rgba(176,124,217,0.14)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#B07CD9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg>
+        </div>
+        <h3>Badges &amp; mérite</h3>
+        <p>Distance parcourue, exploration, contributions : tes badges reflètent ton activité réelle sur l'app.</p>
+      </div>
+      <div class="feature">
+        <div class="icon" style="background:rgba(214,69,69,0.14)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E27878" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+        </div>
+        <h3>Notifications</h3>
+        <p>Likes, commentaires, nouveaux abonnés, invitations : tout centralisé dans un onglet dédié.</p>
+      </div>
+      <div class="feature">
+        <div class="icon" style="background:rgba(255,106,0,0.14)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#FF8A33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20z"/></svg>
+        </div>
+        <h3>Disponible en 5 langues</h3>
+        <p>Français, anglais, espagnol, italien, allemand — pour rouler et partager où que tu sois en Europe.</p>
+      </div>
+    </div>
+
+    <div class="langs">
+      <span class="lang-chip">🇫🇷 Français</span>
+      <span class="lang-chip">🇬🇧 English</span>
+      <span class="lang-chip">🇪🇸 Español</span>
+      <span class="lang-chip">🇮🇹 Italiano</span>
+      <span class="lang-chip">🇩🇪 Deutsch</span>
+    </div>
+  </div>
+</section>
+
+<section class="links-section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow-lite">Infos</span>
+      <h2>Confidentialité &amp; support</h2>
+    </div>
+    <div class="link-cards">
+      <a class="link-card" href="./privacy.html">
+        <span class="row-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/></svg></span>
+        <span>
+          <span class="row-title">Politique de confidentialité</span><br>
           <span class="row-sub">Comment tes données sont utilisées</span>
         </span>
         <span class="arrow">→</span>
       </a>
-    </div>
-
-    <div class="card">
-      <a class="row" href="mailto:advmap@sisilab.app">
-        <span class="row-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg>
-        </span>
-        <span class="row-text">
-          <span class="row-title">Support &amp; contact</span>
+      <a class="link-card" href="mailto:advmap@sisilab.app">
+        <span class="row-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18v12H3z"/><path d="M3 7l9 6 9-6"/></svg></span>
+        <span>
+          <span class="row-title">Support &amp; contact</span><br>
           <span class="row-sub">advmap@sisilab.app</span>
         </span>
         <span class="arrow">→</span>
       </a>
     </div>
+  </div>
+</section>
 
-    <footer>ADVMAP — SiSiLab</footer>
-  </main>
+<footer>
+  <div class="fmark">
+    <span class="mark" style="width:22px;height:22px;border-radius:6px;"><svg viewBox="0 0 32 32" fill="none" width="12" height="12"><path d="M6 24l6.5-14 4 8 2.5-5 5 11" stroke="#0B0C0D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    ADVMAP <span class="dot-sep"></span> SiSiLab
+  </div>
+  © 2026 SiSiLab. Tous droits réservés.
+</footer>
+
+<script>
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function () {
+    nav.classList.toggle('scrolled', window.scrollY > 8);
+  });
+
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.feature').forEach(function (el) { obs.observe(el); });
+</script>
 </body>
 </html>
