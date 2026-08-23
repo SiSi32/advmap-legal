@@ -187,8 +187,14 @@
     margin-bottom: 16px;
   }
   .feature .icon svg { width: 21px; height: 21px; }
-  .feature h3 { font-size: 1rem; margin: 0 0 8px; }
+  .feature h3 { font-size: 1rem; margin: 0 0 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .feature p { font-size: 0.87rem; color: var(--text2); margin: 0; }
+  .premium-tag {
+    font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 0.62rem;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    color: #E0A526; background: rgba(224,165,38,0.14); border: 1px solid rgba(224,165,38,0.35);
+    padding: 2px 7px; border-radius: 999px;
+  }
 
   /* ---------- languages strip ---------- */
   .langs {
@@ -360,6 +366,27 @@
         </div>
         <h3>Notifications</h3>
         <p>Likes, commentaires, nouveaux abonnés, invitations : tout centralisé dans un onglet dédié.</p>
+      </div>
+      <div class="feature">
+        <div class="icon" style="background:rgba(38,166,154,0.14)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#26A69A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+        </div>
+        <h3>Messagerie privée</h3>
+        <p>Écris à tes abonnés ou aux personnes que tu suis, en dehors du fil public — pour organiser une sortie à deux.</p>
+      </div>
+      <div class="feature">
+        <div class="icon" style="background:rgba(224,165,38,0.14)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#E0A526" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </div>
+        <h3>Cartes hors-ligne <span class="premium-tag">Premium</span></h3>
+        <p>Télécharge le fond satellite ou topo autour d'un tracé : la navigation continue même sans réseau.</p>
+      </div>
+      <div class="feature">
+        <div class="icon" style="background:rgba(108,123,219,0.14)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#6C7BDB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </div>
+        <h3>Navigation de groupe</h3>
+        <p>Suis la position de tes compagnons de route en direct sur la carte pendant une sortie organisée.</p>
       </div>
       <div class="feature">
         <div class="icon" style="background:rgba(255,106,0,0.14)">
