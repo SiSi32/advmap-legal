@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ADVMAP — Politique de confidentialité</title>
-<meta name="description" content="Version 1.2, en vigueur depuis le 2 octobre 2026. Cette page explique quelles données ADVMAP utilise, pourquoi, et à qui elles sont transmises. Elle est éc" />
+<meta name="description" content="Version 1.3, en vigueur depuis le 3 octobre 2026. Cette page explique quelles données ADVMAP utilise, pourquoi, et à qui elles sont transmises. Elle est éc" />
 <link rel="alternate" hreflang="en" href="https://advmap.sisilab.app/privacy.en.html" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23E0451A'/%3E%3Cpath d='M9 22l5-11 3 6 2-4 4 9' stroke='white' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
 <style>
@@ -68,10 +68,10 @@
 <body>
   <a class="back" href="./">← ADVMAP</a>
   <h1>Politique de confidentialité</h1>
-  <p class="updated">Version 1.2 — 2 octobre 2026 · <a href="./privacy.en.html">English</a></p>
+  <p class="updated">Version 1.3 — 3 octobre 2026 · <a href="./privacy.en.html">English</a></p>
 
   <div class="note">
-    Version 1.2, en vigueur depuis le 2 octobre 2026. Cette page explique quelles données ADVMAP utilise, pourquoi, et à qui elles sont transmises. Elle est écrite pour être lue en entier : si un point te paraît obscur, écris-nous.
+    Version 1.3, en vigueur depuis le 3 octobre 2026. Cette page explique quelles données ADVMAP utilise, pourquoi, et à qui elles sont transmises. Elle est écrite pour être lue en entier : si un point te paraît obscur, écris-nous.
   </div>
 
   <h2>1. Qui est responsable de tes données</h2>
@@ -82,6 +82,7 @@
   <p>Ton compte : l'adresse e-mail transmise par Google ou Apple quand tu te connectes (si tu utilises « Masquer mon adresse » d'Apple, nous ne recevons qu'une adresse relais) — ou, pour les rares comptes créés par l'équipe ADVMAP, l'adresse choisie à leur création —, un identifiant interne, ton pseudo, ta photo de profil, ta bio, les informations sur ta moto, ta langue et ton thème.</p>
   <p>Ce que tu publies : tes traces GPX, c'est-à-dire le tracé complet point par point, tes photos, tes titres et descriptions, tes publications, commentaires, avis et participations aux événements.</p>
   <p>Tes relations dans l'application : les personnes que tu suis, les publications que tu aimes, et la liste des personnes que tu as bloquées.</p>
+  <p>Tes téléchargements : quelles traces tu as téléchargées, et quand. Ils servent à appliquer les quotas mensuels et à afficher combien de motards ont pris une trace ces 30 derniers jours — un total, jamais des noms.</p>
   <p>Tes messages privés : les messages directs et les messages de chat d'événement, conservés sur nos serveurs pour pouvoir être remis à leur destinataire.</p>
   <p>Tes signalements : le motif choisi et le commentaire que tu écris.</p>
   <p>Tes notifications : si tu les autorises, un identifiant technique de ton téléphone, nécessaire pour les lui faire parvenir, et les types de notifications que tu as choisi de recevoir.</p>
@@ -99,16 +100,19 @@
 
   <h2>4. La localisation, en clair</h2>
   <p>C'est le point le plus sensible dans une application de traces, alors disons-le précisément.</p>
-  <p>Ta position en direct sert à te situer sur la carte. Elle reste sur ton téléphone et n'est enregistrée dans aucune de nos bases — à une exception près : si tu actives le partage de position pendant un événement, ta position est diffusée en direct aux autres participants de cet événement. Ce partage est éphémère, il n'est écrit dans aucune table, et il s'arrête dès que tu quittes l'écran.</p>
+  <p>Ta position en direct sert à te situer sur la carte. Elle reste sur ton téléphone et n'est enregistrée dans aucune de nos bases — à une exception près : si tu actives le partage de position pendant un événement, ta position est diffusée en direct aux autres participants de cet événement. Ce partage est éphémère, il n'est écrit dans aucune table, et il s'arrête dès que tu quittes l'écran. Les participants voient aussi ta distance sur la trace et si tu es arrêté ; le groupe est prévenu si tu restes arrêté plus de 5 minutes ou si tu décroches de plus de 3 km.</p>
+  <p>Si tu laisses ADVMAP enregistrer ta sortie pendant la navigation, l'enregistrement reste sur ton téléphone : il n'est envoyé que si tu choisis de le garder, et alors en trace privée.</p>
   <p>Tes traces GPX contiennent des coordonnées précises, par nature. Quand tu publies une trace en public, le tracé est visible par tout le monde, y compris son point de départ — qui est souvent l'endroit d'où tu es réellement parti. Pense-y avant de publier une trace qui commence devant chez toi.</p>
+  <p>Le fichier que les autres téléchargent est une copie nettoyée du tien : sans les heures de passage, sans les informations d'auteur qu'il peut contenir, et sans ses points nommés (« Maison », « Bivouac »…), sauf si tu choisis de les afficher.</p>
   <p>Quand tu importes une trace, les coordonnées de son point de départ sont envoyées à un service de géocodage extérieur pour retrouver le pays, la région et la ville affichés sur la fiche. Il en va de même quand tu choisis un lieu pour une publication, un événement ou « Ma zone ».</p>
-  <p>Quand l'analyse de terrain tourne sur une trace, le tracé complet est envoyé à des services cartographiques extérieurs pour déterminer quelles portions sont goudronnées. C'est aussi le cas quand tu importes une trace sans altitude : son tracé est envoyé pour la calculer. La section 6 dit à qui.</p>
+  <p>Quand l'analyse de terrain tourne sur une trace, le tracé complet est envoyé à des services cartographiques extérieurs pour déterminer quelles portions sont goudronnées, et repérer les points d'attention (gués, barrières…) et les points utiles (stations-service, campings…) le long du tracé. C'est aussi le cas quand tu importes une trace sans altitude : son tracé est envoyé pour la calculer. La section 6 dit à qui.</p>
   <p>Enfin, si tu appuies sur « Itinéraire vers le départ » ou « Rejoindre le tracé », les coordonnées du point visé sont transmises à l'application de navigation que tu sélectionnes — Google Maps, Waze ou Plans — qui applique alors ses propres règles de confidentialité.</p>
 
   <h2>5. Qui voit quoi</h2>
   <p>Ce que tu publies en public — traces publiques, publications, commentaires, avis, profil — est visible par les autres utilisateurs, et ton profil peut apparaître dans la recherche si tu l'as autorisé dans les réglages.</p>
   <p>Tes messages privés ne sont lus par personne d'autre que leur destinataire dans le fonctionnement normal du service.</p>
   <p>La liste des personnes que tu bloques n'est visible que par toi. La personne bloquée n'en est pas prévenue.</p>
+  <p>Le nombre de motards ayant pris une trace ces 30 derniers jours s'affiche en total, jamais avec des noms.</p>
   <p>Une exception, que nous préférons écrire noir sur blanc : quand un contenu est signalé, un administrateur peut le consulter pour décider s'il doit être supprimé, y compris s'il s'agit d'un contenu non public. Pour un message, il voit uniquement le message signalé — jamais le reste de la conversation. C'est la contrepartie d'une modération qui fonctionne réellement.</p>
   <p>En dehors de ces cas — traiter un signalement, répondre à une demande d'aide que tu nous adresses, ou obéir à une obligation légale — nous n'allons pas consulter tes données.</p>
 
@@ -120,9 +124,10 @@
   <p>CARTO, Esri, l'IGN et OpenTopoMap — fonds de carte (plan, satellite, cartes françaises, topographique) : reçoivent ton adresse IP et la zone de carte que tu regardes. Quand tu télécharges une zone pour l'utiliser hors ligne, elle est fournie par l'IGN en France, et par Esri ou OpenTopoMap ailleurs ou si l'IGN ne répond pas : ils reçoivent donc la zone téléchargée.</p>
   <p>Amazon Web Services — données de relief pour le calcul du dénivelé : reçoit ton adresse IP et la zone de carte affichée.</p>
   <p>Photon (Komoot) — recherche de lieux et géocodage inverse : reçoit ce que tu tapes dans la recherche, et les coordonnées précises des points à identifier.</p>
-  <p>Overpass et Valhalla (projets OpenStreetMap) — analyse de terrain, et calcul de l'altitude des traces qui n'en ont pas : reçoivent le tracé complet de la trace concernée.</p>
+  <p>Overpass et Valhalla (projets OpenStreetMap) — analyse de terrain, calcul de l'altitude des traces qui n'en ont pas, points d'attention et points utiles : reçoivent le tracé complet de la trace concernée.</p>
   <p>RainViewer — calque météo : reçoit la zone de carte affichée.</p>
   <p>OpenMapTiles et unpkg — polices de caractères et bibliothèque cartographique : reçoivent ton adresse IP seule.</p>
+  <p>cdnjs (Cloudflare) — bibliothèque d'affichage des roadbooks PDF : reçoit ton adresse IP seule. Le PDF lui-même reste sur ton téléphone.</p>
   <p>RevenueCat — gestion des abonnements Premium : recevra ton identifiant interne lorsque les abonnements seront ouverts. À ce jour ils ne le sont pas et aucune donnée ne lui est transmise.</p>
   <p>Aucun de ces services ne reçoit tes messages privés, à l'exception de Supabase qui les héberge.</p>
   <p>À ce jour, ADVMAP n'intègre aucun outil de mesure d'audience, aucun réseau publicitaire et aucun traceur tiers. Ce n'est pas une déclaration d'intention : il n'y en a aucun dans la version que tu utilises, et cela se vérifie. La section suivante dit ce qu'il en sera si cela change.</p>
@@ -137,14 +142,15 @@
   <p>Dans tous les cas, tes traces, tes photos et tes messages privés ne seront pas transmis à un annonceur, et tes données ne seront pas vendues.</p>
 
   <h2>8. Transferts hors Union européenne</h2>
-  <p>Une partie de ces services est établie hors de l'Union européenne : Supabase à Singapour, et aux États-Unis Expo, CARTO, Esri, Amazon Web Services, unpkg et RevenueCat. Google et Apple s'adressent aux utilisateurs européens par leurs filiales irlandaises, mais peuvent transférer des données hors de l'Union. Ces transferts s'appuient sur les garanties prévues par le chapitre V du RGPD : principalement les clauses contractuelles types de la Commission européenne et, pour les prestataires américains qui y adhèrent, le cadre de protection des données UE–États-Unis.</p>
+  <p>Une partie de ces services est établie hors de l'Union européenne : Supabase à Singapour, et aux États-Unis Expo, CARTO, Esri, Amazon Web Services, unpkg, Cloudflare et RevenueCat. Google et Apple s'adressent aux utilisateurs européens par leurs filiales irlandaises, mais peuvent transférer des données hors de l'Union. Ces transferts s'appuient sur les garanties prévues par le chapitre V du RGPD : principalement les clauses contractuelles types de la Commission européenne et, pour les prestataires américains qui y adhèrent, le cadre de protection des données UE–États-Unis.</p>
   <p>Les services issus du monde OpenStreetMap que nous utilisons — Photon, Overpass, Valhalla et OpenTopoMap — sont hébergés en Europe.</p>
   <p>Tes données et tes fichiers sont physiquement hébergés dans l'Union européenne, en France : Supabase les stocke dans la région Europe (Paris). L'entreprise Supabase est singapourienne, mais tes données, elles, ne quittent pas le territoire français.</p>
 
   <h2>9. Combien de temps nous gardons tes données</h2>
   <p>Tant que ton compte existe.</p>
   <p>Tu peux supprimer une trace, une publication, un événement ou un commentaire à tout moment : la suppression est immédiate, et efface aussi les fichiers qui s'y rattachent — fichier GPX, photos.</p>
-  <p>Supprimer ton compte (Réglages &gt; Vos données) efface ton profil et ta photo de profil, tes traces et leurs fichiers GPX, tes photos, tes publications, tes commentaires, tes avis, les événements que tu as créés, tes abonnements, tes « j'aime », ta liste de blocages et tes messages. C'est immédiat et définitif : nous ne pouvons rien restaurer ensuite. Si l'effacement de tes fichiers échoue, ton compte n'est pas supprimé — rien n'est effacé à moitié, et tu peux réessayer. Les sauvegardes techniques de notre hébergeur peuvent en conserver une copie quelques jours, avant d'être écrasées à leur tour.</p>
+  <p>L'historique de tes téléchargements est effacé automatiquement au bout de 60 jours.</p>
+  <p>Supprimer ton compte (Réglages &gt; Vos données) efface ton profil et ta photo de profil, tes traces et leurs fichiers GPX, tes photos, tes publications, tes commentaires, tes avis, les événements que tu as créés, tes abonnements, tes « j'aime », ta liste de blocages, ton historique de téléchargements et tes messages. C'est immédiat et définitif : nous ne pouvons rien restaurer ensuite. Si l'effacement de tes fichiers échoue, ton compte n'est pas supprimé — rien n'est effacé à moitié, et tu peux réessayer. Les sauvegardes techniques de notre hébergeur peuvent en conserver une copie quelques jours, avant d'être écrasées à leur tour.</p>
   <p>Tes conversations privées disparaissent pour les deux personnes : les messages que tu as envoyés comme ceux que tu as reçus. Dans l'autre sens, si quelqu'un avec qui tu échanges supprime son compte, votre conversation disparaît aussi de ton côté. Seul ce qui aurait été copié ou capturé à l'écran échappe à la suppression.</p>
 
   <h2>10. Tes droits</h2>
