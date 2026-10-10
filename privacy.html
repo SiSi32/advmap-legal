@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ADVMAP — Politique de confidentialité</title>
-<meta name="description" content="Version 1.8, en vigueur depuis le 4 octobre 2026. Cette page explique quelles données ADVMAP utilise, pourquoi, et à qui elles sont transmises. Elle est éc" />
+<meta name="description" content="Version 1.9, en vigueur depuis le 11 octobre 2026. Cette page explique quelles données ADVMAP utilise, pourquoi, et à qui elles sont transmises. Elle est é" />
 <link rel="alternate" hreflang="en" href="https://advmap.sisilab.app/privacy.en.html" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23E0451A'/%3E%3Cpath d='M9 22l5-11 3 6 2-4 4 9' stroke='white' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
 <style>
@@ -68,10 +68,10 @@
 <body>
   <a class="back" href="./">← ADVMAP</a>
   <h1>Politique de confidentialité</h1>
-  <p class="updated">Version 1.8 — 4 octobre 2026 · <a href="./privacy.en.html">English</a></p>
+  <p class="updated">Version 1.9 — 11 octobre 2026 · <a href="./privacy.en.html">English</a></p>
 
   <div class="note">
-    Version 1.8, en vigueur depuis le 4 octobre 2026. Cette page explique quelles données ADVMAP utilise, pourquoi, et à qui elles sont transmises. Elle est écrite pour être lue en entier : si un point te paraît obscur, écris-nous.
+    Version 1.9, en vigueur depuis le 11 octobre 2026. Cette page explique quelles données ADVMAP utilise, pourquoi, et à qui elles sont transmises. Elle est écrite pour être lue en entier : si un point te paraît obscur, écris-nous.
   </div>
 
   <h2>1. Qui est responsable de tes données</h2>
@@ -125,11 +125,12 @@
   <p>Supabase — base de données, authentification, stockage des fichiers et messages en direct : reçoit l'ensemble de tes données de compte et de contenu.</p>
   <p>Google et Apple — connexion à ton compte : reçoivent la demande de connexion et nous transmettent ton adresse e-mail. Si tu autorises les notifications, ce sont aussi eux qui les délivrent à ton téléphone.</p>
   <p>Expo (EAS) — distribution des mises à jour de l'application et envoi des notifications : reçoit ton adresse IP et des informations d'appareil au téléchargement d'une mise à jour. Pour une notification, il reçoit l'identifiant technique de ton téléphone et le texte affiché — le pseudo de la personne concernée, l'action, par exemple « t'a envoyé un message », et, le cas échéant, le titre de la trace ou de l'événement concerné —, puis le confie à Apple ou à Google. Jamais le contenu d'un message ou d'un commentaire.</p>
-  <p>CARTO, Esri, l'IGN et OpenTopoMap — fonds de carte (plan, satellite, cartes françaises, topographique) : reçoivent ton adresse IP et la zone de carte que tu regardes. Quand tu télécharges une zone pour l'utiliser hors ligne, elle est fournie par l'IGN en France, par les cartes officielles espagnole et autrichienne dans ces deux pays, et par Esri ou OpenTopoMap ailleurs ou si l'IGN ne répond pas : ils reçoivent donc la zone téléchargée.</p>
+  <p>OpenFreeMap, Esri, l'IGN et OpenTopoMap — fonds de carte (plan, satellite, cartes françaises, topographique) : reçoivent ton adresse IP et la zone de carte que tu regardes. Quand tu télécharges une zone pour l'utiliser hors ligne, elle est fournie par l'IGN en France, par les cartes officielles espagnole et autrichienne dans ces deux pays, et par OpenTopoMap ailleurs ou si l'IGN ne répond pas : ils reçoivent donc la zone téléchargée.</p>
   <p>Les cartes officielles des pays voisins — swisstopo (Suisse), l'Institut géographique national espagnol, le BKG (Allemagne), basemap.at (Autriche) et Kartverket (Norvège) — remplacent le fond topographique dans leur pays : chacune reçoit ton adresse IP et la zone de carte que tu regardes, jamais aucune donnée de ton compte.</p>
-  <p>Amazon Web Services — données de relief pour le calcul du dénivelé : reçoit ton adresse IP et la zone de carte affichée.</p>
+  <p>Amazon Web Services — données d'altitude, pour le relief de la carte, le dénivelé et l'altitude des traces qui n'en ont pas, calculée sur ton téléphone : reçoit ton adresse IP et la zone concernée, celle de la carte affichée ou celle que traverse la trace.</p>
   <p>Photon (Komoot) — recherche de lieux et géocodage inverse : reçoit ce que tu tapes dans la recherche, et les coordonnées précises des points à identifier.</p>
-  <p>Overpass et Valhalla (projets OpenStreetMap) — analyse de terrain, calcul de l'altitude des traces qui n'en ont pas, points d'attention et points utiles : reçoivent le tracé complet de la trace concernée.</p>
+  <p>Geoapify (KEPTAGO LTD, Chypre) — analyse de terrain et points d'attention : reçoit les points de la trace concernée. La demande passe par notre serveur : Geoapify ne reçoit ni ton nom, ni ton adresse IP, ni aucune donnée de ton compte. Selon sa politique, une demande aboutie n'est en principe pas conservée plus de 24 heures.</p>
+  <p>Overpass (projet OpenStreetMap) — points d'attention, points utiles, et analyse de terrain quand Geoapify ne répond pas : reçoit le tracé de la trace concernée.</p>
   <p>RainViewer — calque météo : reçoit la zone de carte affichée.</p>
   <p>OpenMapTiles et unpkg — polices de caractères et bibliothèque cartographique : reçoivent ton adresse IP seule.</p>
   <p>cdnjs (Cloudflare) — bibliothèque d'affichage des roadbooks PDF : reçoit ton adresse IP seule. Le PDF lui-même reste sur ton téléphone.</p>
@@ -147,8 +148,9 @@
   <p>Dans tous les cas, tes traces, tes photos et tes messages privés ne seront pas transmis à un annonceur, et tes données ne seront pas vendues.</p>
 
   <h2>8. Transferts hors Union européenne</h2>
-  <p>Une partie de ces services est établie hors de l'Union européenne : Supabase à Singapour, et aux États-Unis Expo, CARTO, Esri, Amazon Web Services, unpkg, Cloudflare et RevenueCat. Google et Apple s'adressent aux utilisateurs européens par leurs filiales irlandaises, mais peuvent transférer des données hors de l'Union. Ces transferts s'appuient sur les garanties prévues par le chapitre V du RGPD : principalement les clauses contractuelles types de la Commission européenne et, pour les prestataires américains qui y adhèrent, le cadre de protection des données UE–États-Unis.</p>
-  <p>Les services issus du monde OpenStreetMap que nous utilisons — Photon, Overpass, Valhalla et OpenTopoMap — sont hébergés en Europe.</p>
+  <p>Une partie de ces services est établie hors de l'Union européenne : Supabase à Singapour, et aux États-Unis Expo, Esri, Amazon Web Services, unpkg, Cloudflare et RevenueCat. Google et Apple s'adressent aux utilisateurs européens par leurs filiales irlandaises, mais peuvent transférer des données hors de l'Union. Ces transferts s'appuient sur les garanties prévues par le chapitre V du RGPD : principalement les clauses contractuelles types de la Commission européenne et, pour les prestataires américains qui y adhèrent, le cadre de protection des données UE–États-Unis.</p>
+  <p>Les services issus du monde OpenStreetMap que nous utilisons — Photon, Overpass et OpenTopoMap — sont hébergés en Europe.</p>
+  <p>Geoapify, établi à Chypre, et OpenFreeMap, établi en Hongrie, sont des entreprises de l'Union européenne dont les serveurs sont dans l'Union. Tous deux peuvent faire passer les demandes par le réseau de Cloudflare, cité plus haut.</p>
   <p>Les cartes officielles des pays voisins proviennent d'organismes publics européens : ceux de l'Union européenne, de la Norvège, membre de l'Espace économique européen, et de la Suisse, que la Commission européenne reconnaît comme assurant une protection adéquate des données.</p>
   <p>Tes données et tes fichiers sont physiquement hébergés dans l'Union européenne, en France : Supabase les stocke dans la région Europe (Paris). L'entreprise Supabase est singapourienne, mais tes données, elles, ne quittent pas le territoire français.</p>
 
