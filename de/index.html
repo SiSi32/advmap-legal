@@ -1,0 +1,827 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ADVMAP — Motorrad- und Trail-Tracks teilen und entdecken</title>
+<meta name="description" content="ADVMAP: Teile deine GPX-Tracks, entdecke die der anderen, organisiere Touren. Die App für Reiseenduro-Fahrer und alle, die Wege erkunden." />
+<meta property="og:title" content="ADVMAP" />
+<meta property="og:description" content="Motorrad- und Trail-GPX-Tracks teilen und entdecken." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://advmap.sisilab.app/og-image.png" />
+<meta property="og:url" content="https://advmap.sisilab.app/de/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="theme-color" content="#0B0C0D" />
+<link rel="icon" type="image/png" href="data:image/png;base64,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" />
+<link rel="canonical" href="https://advmap.sisilab.app/de/" />
+<link rel="alternate" hreflang="fr" href="https://advmap.sisilab.app/" />
+<link rel="alternate" hreflang="en" href="https://advmap.sisilab.app/en/" />
+<link rel="alternate" hreflang="es" href="https://advmap.sisilab.app/es/" />
+<link rel="alternate" hreflang="it" href="https://advmap.sisilab.app/it/" />
+<link rel="alternate" hreflang="de" href="https://advmap.sisilab.app/de/" />
+<link rel="alternate" hreflang="x-default" href="https://advmap.sisilab.app/en/" />
+<style>
+  /* Polices servies par le site lui-même : aucun appel à un tiers. */
+  @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/barlow-400.woff2') format('woff2'); }
+  @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 500; font-display: swap; src: url('../fonts/barlow-500.woff2') format('woff2'); }
+  @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 600; font-display: swap; src: url('../fonts/barlow-600.woff2') format('woff2'); }
+  @font-face { font-family: 'Barlow'; font-style: normal; font-weight: 700; font-display: swap; src: url('../fonts/barlow-700.woff2') format('woff2'); }
+  @font-face { font-family: 'Exo 2'; font-style: normal; font-weight: 600 800; font-display: swap; src: url('../fonts/exo2.woff2') format('woff2'); }
+
+  /*
+   * La page est une trace. Le fond est une carte (courbes de niveau inventées),
+   * une trace descend la page et se dessine au défilement, chaque fonction est
+   * une étape du roadbook, avec sa capture. Les couleurs de la trace sont celles
+   * des terrains dans l'app.
+   */
+  :root {
+    color-scheme: dark;
+    --bg: #0B0C0D;
+    --tile: rgba(19, 20, 23, 0.82);
+    --tile-solid: #141518;
+    --line: #2A2B2E;
+    --ink: #F5F4F1;
+    --ink2: #A9A99C;
+    --ink3: #74757A;
+    --orange: #FF6A00;
+    --orange2: #FF8A33;
+    --route: #3B9BE8;
+    --piste: #7CB342;
+    --gravier: #E8B93A;
+    --terre: #FF6A00;
+    --sentier: #E0524F;
+    --gutter: max(16px, env(safe-area-inset-left, 0px));
+    --phone: min(62vw, 250px);
+    --display: 'Exo 2', 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-padding-top: 76px; }
+  body {
+    margin: 0;
+    background: var(--bg) url('../terrain.svg') center top / 960px 960px;
+    color: var(--ink);
+    font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 17px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  img { max-width: 100%; }
+  h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+  p { margin: 0; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding-left: var(--gutter); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  :focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; border-radius: 6px; }
+
+  /* ---------- barre du haut ---------- */
+  .top {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 30;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: calc(10px + env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 10px var(--gutter);
+    background: linear-gradient(rgba(11,12,13,0.92), rgba(11,12,13,0));
+    transition: background .3s;
+  }
+  .top.scrolled { background: rgba(11,12,13,0.86); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--line); }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .brand .mark { width: 30px; height: 30px; border-radius: 8px; display: block; }
+  .brand .word { height: 11px; width: auto; display: block; }
+  @media (max-width: 379px) { .brand .mark { display: none; } }
+  .links { display: none; gap: 26px; font-weight: 600; font-size: 0.92rem; color: var(--ink2); }
+  .links a { text-decoration: none; }
+  .links a:hover { color: var(--ink); }
+  .get {
+    font-family: var(--display); font-weight: 700; font-size: 0.86rem; letter-spacing: 0.02em;
+    text-decoration: none; color: #0B0C0D; background: var(--orange);
+    padding: 8px 15px; border-radius: 999px; white-space: nowrap;
+  }
+  .get:hover { background: var(--orange2); }
+  .top-right { display: flex; align-items: center; gap: 10px; }
+  .lang { position: relative; }
+  .lang summary { list-style: none; cursor: pointer; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.06em; color: var(--ink2); border: 1px solid var(--line); border-radius: 999px; padding: 7px 11px; background: rgba(11,12,13,0.6); white-space: nowrap; }
+  .lang summary::-webkit-details-marker { display: none; }
+  .lang summary::after { content: "▾"; margin-left: 5px; font-size: 0.75em; }
+  .lang[open] summary { color: var(--ink); border-color: var(--orange); }
+  .lang-menu { position: absolute; right: 0; top: calc(100% + 8px); display: grid; min-width: 156px; padding: 6px; background: var(--tile-solid); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.85); }
+  .lang-menu a { text-decoration: none; padding: 9px 12px; border-radius: 9px; font-weight: 600; font-size: 0.95rem; color: var(--ink2); }
+  .lang-menu a:hover, .lang-menu a[aria-current] { color: var(--ink); background: rgba(255,106,0,0.14); }
+  footer .flinks a[aria-current] { color: var(--ink); text-decoration: none; font-weight: 600; }
+
+  /* ---------- la trace ---------- */
+  #route { position: relative; overflow: hidden; }
+  #trace { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+  #trace path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  #trace .planned { stroke: rgba(245,244,241,0.2); stroke-width: 2; stroke-dasharray: 1 8; }
+  #trace .casing { stroke: var(--bg); stroke-width: 9; }
+  #trace .leg { stroke-width: 4; }
+  #rider path { fill: var(--orange); stroke: #0B0C0D; stroke-width: 2; stroke-linejoin: round; }
+  #rider circle { fill: rgba(255,106,0,0.18); }
+  #route > * { position: relative; z-index: 1; }
+  #route > #trace { position: absolute; z-index: 0; }
+
+  /* ---------- téléphones ---------- */
+  .shot { position: relative; width: var(--phone); }
+  .phone {
+    width: 100%; padding: calc(var(--phone) * 0.028);
+    border-radius: calc(var(--phone) * 0.155);
+    background: linear-gradient(160deg, #303136, #131417 55%);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.09), 0 34px 60px -24px rgba(0,0,0,0.9), 0 0 90px -34px rgba(255,106,0,0.42);
+    transform: rotate(var(--rz, 0deg));
+    transition: transform 1s cubic-bezier(.2,.7,.2,1), opacity .8s ease;
+  }
+  .phone img { display: block; width: 100%; height: auto; border-radius: calc(var(--phone) * 0.128); background: #0B0C0D; }
+  .js .shot:not(.in) .phone { opacity: 0; transform: perspective(900px) translateY(46px) rotateY(var(--ry, 24deg)) rotate(0deg); }
+  .credit { margin-top: 12px; max-width: var(--phone); font-size: 0.68rem; line-height: 1.45; color: var(--ink3); }
+  .credit a { text-underline-offset: 2px; }
+
+  /* ---------- tuiles (comme les cases de l'app) ---------- */
+  .tile {
+    background: var(--tile);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    border: 1px solid var(--line); border-radius: 18px;
+    padding: 20px 20px 22px;
+    transition: border-color .5s, box-shadow .5s;
+  }
+  .wp.current .tile { border-color: var(--orange); box-shadow: 0 0 0 1px var(--orange), 0 0 60px -28px rgba(255,106,0,0.7); }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-weight: 700; font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange2);
+  }
+  .eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 4px rgba(255,106,0,0.2); }
+
+  /* ---------- départ ---------- */
+  .hero { padding-top: calc(104px + env(safe-area-inset-top, 0px)); }
+  .hero::before {
+    content: ""; position: absolute; left: 50%; top: -260px; width: 1100px; height: 640px; transform: translateX(-50%);
+    background: radial-gradient(ellipse at center, rgba(255,106,0,0.2), transparent 64%); pointer-events: none; z-index: -1;
+  }
+  .hero-grid { display: grid; gap: 44px; }
+  .hero h1 {
+    font-weight: 800; letter-spacing: -0.035em; line-height: 0.96;
+    font-size: clamp(2.9rem, 13.2vw, 6.2rem); margin: 18px 0 22px;
+  }
+  .hero h1 span { color: var(--orange); }
+  .hero h1 .l2 { display: block; color: var(--bg); -webkit-text-stroke: 3px var(--ink); paint-order: stroke fill; }
+  .hero h1 .l2 span { color: var(--orange); -webkit-text-stroke: 0; }
+  .hero-sub { color: var(--ink2); font-size: 1.08rem; max-width: 34em; }
+  .store-badge { display: inline-block; margin-top: 26px; border-radius: 10px; }
+  .store-badge img { display: block; height: 52px; width: auto; }
+  .hero-note { margin-top: 12px; color: var(--ink3); font-size: 0.86rem; }
+  .hero-shot { --phone: min(72vw, 300px); justify-self: center; }
+  .hero-shot .phone { --rz: 4deg; }
+  .hero-shot .credit { text-align: center; margin-left: auto; margin-right: auto; }
+
+  .pin { display: flex; flex-direction: column; align-items: center; gap: 10px; width: max-content; margin: 54px auto 0; text-align: center; }
+  .pin i { width: 22px; height: 22px; border-radius: 50%; background: var(--piste); border: 4px solid var(--ink); box-shadow: 0 0 0 7px rgba(124,179,66,0.22); display: block; }
+  .pin.end i { background: var(--orange); box-shadow: 0 0 0 7px rgba(255,106,0,0.22); }
+  .pin b { font-family: var(--display); font-weight: 800; font-size: 0.8rem; letter-spacing: 0.22em; text-transform: uppercase; background: var(--bg); padding: 2px 10px; border-radius: 6px; }
+  .pin span { font-size: 0.78rem; color: var(--ink3); letter-spacing: 0.08em; background: var(--bg); padding: 0 8px; border-radius: 6px; margin-top: -8px; }
+
+  /* ---------- titres de section ---------- */
+  .head { margin: 120px auto 0; max-width: 620px; }
+  .head h2 { font-weight: 800; letter-spacing: -0.02em; line-height: 1.04; font-size: clamp(1.9rem, 7.4vw, 3rem); margin: 12px 0 12px; }
+  .head p { color: var(--ink2); }
+  .head .meta { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink3); display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  .head .meta b { color: var(--ink); font-weight: 700; }
+
+  /* ---------- étapes ---------- */
+  .wp {
+    display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; row-gap: 22px;
+    grid-template-areas: "shot num" "tile tile";
+    margin-top: 118px; align-items: start;
+  }
+  .wp:nth-of-type(even) { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "num shot" "tile tile"; }
+  .shot-col { grid-area: shot; }
+  .txt-col { display: contents; }
+  .wp:nth-of-type(odd) .phone { --rz: -3deg; --ry: 24deg; }
+  .wp:nth-of-type(even) .phone { --rz: 3deg; --ry: -24deg; }
+  .num { grid-area: num; align-self: center; display: flex; flex-direction: column; gap: 2px; line-height: 1; }
+  .wp:nth-of-type(even) .num { align-items: flex-end; text-align: right; }
+  .num b {
+    font-family: var(--display); font-weight: 800; font-size: clamp(3.9rem, 19vw, 7.5rem); letter-spacing: -0.04em;
+    color: var(--bg); -webkit-text-stroke: 3px #5B5C60; paint-order: stroke fill;
+  }
+  .wp.current .num b, .wp.passed .num b { -webkit-text-stroke-color: var(--orange); }
+  .num span { font-weight: 700; font-size: 0.78rem; letter-spacing: 0.16em; color: var(--ink2); background: var(--bg); padding: 3px 0; }
+  .num span i { font-style: normal; color: var(--ink); }
+  .wp .tile { grid-area: tile; }
+  .wp h3 { font-weight: 800; font-size: clamp(1.45rem, 5.6vw, 1.9rem); letter-spacing: -0.015em; line-height: 1.1; margin: 16px 0 8px; }
+  .wp .tile p { color: var(--ink2); }
+  .premium-tag {
+    display: inline-block; vertical-align: middle; margin-left: 6px; font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 0.66rem;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange2); border: 1px solid rgba(255,106,0,0.5); border-radius: 999px; padding: 2px 9px;
+  }
+
+  /* la ligne de roadbook, en tête de chaque tuile */
+  .rb { display: flex; align-items: center; gap: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+  .tulip { width: 40px; height: 40px; flex: none; }
+  .tulip path { fill: none; stroke: var(--ink); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+  .tulip circle { fill: var(--ink); }
+  .rb-cap { font-family: var(--display); font-weight: 800; font-size: 1.25rem; color: var(--orange); line-height: 1; }
+  .rb-cap small { display: block; font-family: 'Barlow', sans-serif; font-weight: 700; font-size: 0.6rem; letter-spacing: 0.18em; color: var(--ink3); margin-bottom: 4px; }
+  .surf { margin-left: auto; display: inline-flex; align-items: center; gap: 7px; font-weight: 600; font-size: 0.86rem; color: var(--ink2); }
+  .surf::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--c); }
+
+  /* trois affichages pour le suivi */
+  .trio { margin: 0 auto; }
+  .trio .side { position: absolute; top: 7%; width: 80%; z-index: -1; }
+  .trio .side.l { left: -34%; } .trio .side.r { right: -34%; }
+  .trio .side.l .phone { --rz: -9deg; } .trio .side.r .phone { --rz: 9deg; }
+  .wp.wide { grid-template-columns: minmax(0, 1fr); grid-template-areas: "num" "shot" "tile"; }
+  .wp.wide .num { flex-direction: row; align-items: baseline; gap: 14px; justify-content: flex-start; text-align: left; }
+  .wp.wide .shot-col { display: flex; flex-direction: column; align-items: center; }
+  .wp.wide .credit { text-align: center; }
+
+  /* cinq langues, cinq téléphones */
+  .fan { --phone: min(27vw, 150px); width: 100%; max-width: 560px; display: flex; justify-content: center; padding: 14px 0 6px; }
+  .fan .phone { width: var(--phone); flex: none; margin: 0 calc(var(--phone) * -0.16); }
+  .fan .phone:nth-child(1) { --rz: -14deg; margin-top: 10%; }
+  .fan .phone:nth-child(2) { --rz: -7deg; margin-top: 3%; }
+  .fan .phone:nth-child(3) { --rz: 0deg; z-index: 2; }
+  .fan .phone:nth-child(4) { --rz: 7deg; margin-top: 3%; }
+  .fan .phone:nth-child(5) { --rz: 14deg; margin-top: 10%; }
+  .langs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .lang-chip { border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; font-weight: 600; font-size: 0.86rem; color: var(--ink2); background: var(--tile-solid); }
+
+  /* ---------- Premium ---------- */
+  .premium-grid { display: grid; gap: 30px; margin-top: 46px; }
+  .premium-shot { justify-self: center; }
+  .premium-shot .phone { --rz: 3deg; }
+  .premium-shot .credit { text-align: center; }
+  .premium-box { border-color: rgba(255,106,0,0.55); box-shadow: 0 0 80px -40px rgba(255,106,0,0.8); }
+  .premium-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+  .premium-list li { display: grid; grid-template-columns: 30px 1fr; gap: 12px; align-items: start; }
+  .premium-list .pi { width: 30px; height: 30px; border-radius: 9px; border: 1.5px solid var(--orange); display: grid; place-items: center; color: var(--orange); }
+  .premium-list .pi svg { width: 16px; height: 16px; }
+  .premium-list b { display: block; font-family: var(--display); font-weight: 700; font-size: 1.04rem; line-height: 1.25; }
+  .premium-list span span, .premium-list div > span { color: var(--ink2); font-size: 0.95rem; }
+  .premium-aside h3 { font-weight: 800; font-size: 1.35rem; margin-bottom: 10px; }
+  .premium-aside p { color: var(--ink2); margin-bottom: 12px; }
+  .premium-aside .premium-note { color: var(--ink3); font-size: 0.88rem; margin-bottom: 0; }
+
+  /* ---------- infos ---------- */
+  .link-cards { display: grid; gap: 12px; margin-top: 30px; }
+  .link-card { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 14px; text-decoration: none; padding: 16px 18px; }
+  .link-card:hover { border-color: var(--orange); }
+  .row-title { font-family: var(--display); font-weight: 700; }
+  .row-sub { color: var(--ink2); font-size: 0.9rem; }
+  .link-card .arrow { color: var(--orange); font-weight: 700; }
+
+  /* ---------- arrivée ---------- */
+  .finish { text-align: center; padding-top: 20px; padding-bottom: 90px; }
+  .finish .word { display: block; width: min(78vw, 520px); height: auto; margin: 34px auto 18px; }
+  .finish p { color: var(--ink2); }
+  .profile { display: flex; align-items: flex-end; gap: 2px; height: 74px; max-width: 560px; margin: 40px auto 8px; }
+  .profile i { flex: 1; min-width: 0; border-radius: 2px 2px 0 0; background: var(--c, var(--line)); opacity: 0.9; }
+  .profile-cap { display: flex; justify-content: space-between; max-width: 560px; margin: 0 auto; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink3); }
+
+  footer { border-top: 1px solid var(--line); background: rgba(11,12,13,0.9); padding: 34px 0 calc(34px + env(safe-area-inset-bottom, 0px)); color: var(--ink3); font-size: 0.8rem; line-height: 1.55; }
+  footer .wrap > * + * { margin-top: 12px; }
+  .fmark { display: flex; align-items: center; gap: 9px; color: var(--ink2); font-weight: 600; font-size: 0.9rem; }
+  .fmark img { width: 22px; height: 22px; border-radius: 6px; display: block; }
+  .dot-sep { width: 4px; height: 4px; border-radius: 50%; background: var(--ink3); }
+  .flinks { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--ink2); font-size: 0.88rem; }
+  .flinks a { text-underline-offset: 3px; }
+  footer .small { font-size: 0.72rem; }
+
+  /* ---------- compteur, comme à l'écran en roulant ---------- */
+  .hud {
+    position: fixed; z-index: 25; left: max(12px, env(safe-area-inset-left, 0px)); bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    display: flex; gap: 8px; pointer-events: none;
+    opacity: 0; transform: translateY(14px); transition: opacity .4s, transform .4s;
+  }
+  .hud.on { opacity: 1; transform: none; }
+  .hud::before { content: ""; position: fixed; left: 0; right: 0; bottom: 0; height: calc(96px + env(safe-area-inset-bottom, 0px)); z-index: -1; background: linear-gradient(rgba(11,12,13,0), rgba(11,12,13,0.94) 62%); }
+  .hud-tile { background: rgba(11,12,13,0.9); border: 2px solid var(--orange); border-radius: 12px; padding: 6px 10px 7px; min-width: 76px; line-height: 1; }
+  .hud-tile span { display: block; font-weight: 700; font-size: 0.52rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink2); margin-bottom: 5px; }
+  .hud-tile b { font-family: var(--display); font-weight: 800; font-size: 1.28rem; font-variant-numeric: tabular-nums; }
+  .hud-tile i { font-style: normal; font-weight: 600; font-size: 0.7rem; color: var(--ink2); margin-left: 3px; }
+
+  .reveal { transition: opacity .8s ease, transform .9s cubic-bezier(.2,.7,.2,1); }
+  .js .reveal:not(.in) { opacity: 0; transform: translateY(26px); }
+
+  @media (min-width: 900px) {
+    :root { --phone: 300px; --gutter: max(32px, env(safe-area-inset-left, 0px)); }
+    body { font-size: 18px; }
+    .links { display: flex; }
+    .brand .word { height: 15px; }
+    .hero { padding-top: 150px; }
+    .hero-grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); align-items: center; gap: 30px; }
+    .hero-shot { --phone: 330px; }
+    .hero h1 { font-size: clamp(4.4rem, 8.4vw, 7.4rem); }
+    .pin { margin-top: 70px; }
+    .head { margin-top: 150px; text-align: center; }
+    .head .meta { justify-content: center; }
+    .wp, .wp:nth-of-type(even) { grid-template-columns: 1fr 1fr; grid-template-areas: "shot txt"; column-gap: 40px; margin-top: 170px; align-items: center; }
+    .wp:nth-of-type(even) { grid-template-areas: "txt shot"; }
+    .shot-col { justify-self: center; }
+    .txt-col { display: block; grid-area: txt; max-width: 480px; }
+    .wp:nth-of-type(odd) .txt-col { justify-self: start; }
+    .wp:nth-of-type(even) .txt-col { justify-self: end; }
+    .num, .wp:nth-of-type(even) .num { flex-direction: row; align-items: baseline; gap: 16px; text-align: left; justify-content: flex-start; margin-bottom: 14px; }
+    .num b { font-size: 8.4rem; }
+    .tile { padding: 26px 28px 28px; }
+    .wp.wide { grid-template-columns: 1fr 1fr; grid-template-areas: "shot txt"; }
+    .wp.wide:nth-of-type(even) { grid-template-areas: "txt shot"; }
+    .wp.wide .shot-col { display: block; }
+    .trio { --phone: 270px; }
+    .fan { --phone: 128px; }
+    .premium-grid { grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr); align-items: center; gap: 44px; margin-top: 60px; }
+    .premium-shot { order: 2; }
+    .premium-aside { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 44px; }
+    .premium-aside h3 { grid-column: 1 / -1; }
+    .link-cards { grid-template-columns: 1fr 1fr; }
+    .hud { left: 24px; bottom: 24px; }
+    .hud-tile { min-width: 96px; padding: 8px 13px 9px; }
+    .hud-tile b { font-size: 1.6rem; }
+    .hud-tile span { font-size: 0.58rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .phone, .reveal, .hud { transition: none; }
+    .js .shot:not(.in) .phone, .js .reveal:not(.in) { opacity: 1; transform: rotate(var(--rz, 0deg)); }
+    .js .reveal:not(.in) { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top" id="nav">
+  <a class="brand" href="#top" aria-label="ADVMAP, Seitenanfang">
+    <img class="mark" src="data:image/png;base64,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" alt="" />
+    <img class="word" src="../advmap-wordmark.svg" width="1736" height="160" alt="ADVMAP" />
+  </a>
+  <div class="links">
+    <a href="#features">Funktionen</a>
+    <a href="#premium">Premium</a>
+    <a href="../terms.en.html">AGB</a>
+    <a href="../privacy.en.html">Datenschutz</a>
+    <a href="mailto:advmap@sisilab.app">Kontakt</a>
+  </div>
+  <div class="top-right">
+    <details class="lang"><summary aria-label="Sprache">DE</summary><div class="lang-menu"><a href="../?lang=fr" lang="fr" hreflang="fr">Français</a><a href="../en/" lang="en" hreflang="en">English</a><a href="../es/" lang="es" hreflang="es">Español</a><a href="../it/" lang="it" hreflang="it">Italiano</a><a href="./" lang="de" hreflang="de" aria-current="page">Deutsch</a></div></details>
+    <a class="get" href="../download">Laden</a>
+  </div>
+</nav>
+
+<div id="route">
+  <svg id="trace" aria-hidden="true"></svg>
+
+  <header class="hero wrap" id="top">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow"><span class="dot"></span> Im App Store erhältlich</span>
+        <h1>Teile deine Tracks.<span class="l2">Entdecke die <span>der anderen</span>.</span></h1>
+        <p class="hero-sub">ADVMAP ist die App für Reiseenduro-Fahrer und alle, die Wege erkunden: Zeichne deine Route oder importiere eine GPX-Datei, folge ihr mit Sprachansagen, behalte mit Premium die Karten, um ohne Netz zu fahren, und teile deine Touren mit der Community.</p>
+        <!-- Badge officiel d'Apple, non modifié. Le jour où Google publie : ajouter ici le badge officiel Google Play. -->
+        <a class="store-badge js-store" href="https://apps.apple.com/fr/app/advmap/id6806682833">
+          <img src="../badges/app-store-de.svg" alt="Laden im App Store" />
+        </a>
+        <p class="hero-note">Auf iPhone und iPad, in der Europäischen Union, der Schweiz, Norwegen und Island.<br>Bald auch für Android.</p>
+      </div>
+      <div class="hero-shot">
+        <div class="shot in">
+          <div class="phone"><img src="../captures/de/carte.webp" width="520" height="1129" alt="Screenshot der App: die Karte mit einem Track der Community und seiner Übersicht (Distanz, Höhenmeter, Offroad-Anteil)." /></div>
+        </div>
+        <p class="credit">Karte: © <a href="https://openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a> © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap-Mitwirkende</a>. Relief: Mapzen Terrain Tiles.</p>
+      </div>
+    </div>
+    <div class="pin" data-wp><i></i><b>Start</b><span>KM 0</span></div>
+  </header>
+
+  <section id="features" class="wrap">
+    <div class="head tile reveal">
+      <span class="eyebrow">Funktionen</span>
+      <h2>Alles, um deine Touren zu planen und zu teilen</h2>
+      <p>Eine Karte fürs Gelände, ein sozialer Feed für die Community und die Werkzeuge, um entspannt zu fahren.</p>
+      <div class="meta" aria-hidden="true"><span><b>9</b> Etappen</span><span>Roadbook der Seite</span><span><b data-total>63,8</b> km</span></div>
+    </div>
+
+    <section class="wp" data-surf="piste">
+      <div class="shot-col">
+        <div class="shot" data-wp><div class="phone"><img loading="lazy" src="../captures/de/fiche.webp" width="520" height="1129" alt="Screenshot der App: die Seite eines Tracks mit Straßen- und Geländeanteil, Furten, Tankstellen, Pässen und Reichweite." /></div></div>
+      </div>
+      <div class="txt-col">
+        <div class="num" aria-hidden="true"><b>01</b><span>KM <i data-km>—</i></span></div>
+        <div class="tile">
+          <div class="rb" aria-hidden="true"><svg class="tulip" viewBox="0 0 40 40"><circle cx="20" cy="35" r="3"/><path d="M20 35 L20 8 M14 14 L20 8 L26 14"/></svg><div class="rb-cap"><small>KURS</small><span data-cap>180°</span></div><span class="surf" style="--c:#7CB342">Verdichtete Piste</span></div>
+          <h3>Die Karte der Tracks</h3>
+          <p>Alle Tracks der Community, gefiltert nach Schwierigkeit (Straße, leicht, technisch, extrem) oder nach Ort. Jeder Track wird analysiert: Offroad-Anteil, Pässe, Tankstellen, Achtungspunkte.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wp" data-surf="gravier">
+      <div class="shot-col">
+        <div class="shot" data-wp><div class="phone"><img loading="lazy" src="../captures/de/editeur.webp" width="520" height="1129" alt="Screenshot der App: der Track-Editor mit Höhenprofil und Geländeart." /></div></div>
+        <p class="credit">Karte: © <a href="https://openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a> © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap-Mitwirkende</a>. Relief: Mapzen Terrain Tiles.</p>
+      </div>
+      <div class="txt-col">
+        <div class="num" aria-hidden="true"><b>02</b><span>KM <i data-km>—</i></span></div>
+        <div class="tile">
+          <div class="rb" aria-hidden="true"><svg class="tulip" viewBox="0 0 40 40"><circle cx="20" cy="35" r="3"/><path d="M20 35 L20 8 M14 14 L20 8 L26 14"/></svg><div class="rb-cap"><small>KURS</small><span data-cap>180°</span></div><span class="surf" style="--c:#7CB342">Verdichtete Piste</span></div>
+          <h3>Der Track-Editor</h3>
+          <p>Setze Punkte, der Track folgt Straßen oder Pisten; importiere eine GPX-Datei und bearbeite sie nach; deine Entwürfe bleiben gespeichert. Vor dem Speichern sucht „Strecke prüfen“ nach Furten, Schranken, gesperrten Zufahrten und Stufen, laut OpenStreetMap; der Editor weist auch auf Maut hin.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wp wide" data-surf="terre">
+      <div class="shot-col">
+        <div class="shot trio" data-wp>
+          <div class="side l"><div class="phone"><img loading="lazy" src="../captures/de/roadbook.webp" width="520" height="1129" alt="Screenshot der App: die Roadbook-Anzeige, Kästchen für Kästchen." /></div></div>
+          <div class="side r"><div class="phone"><img loading="lazy" src="../captures/de/fleche.webp" width="520" height="1129" alt="Screenshot der App: die Pfeil-Anzeige mit der Distanz bis zur nächsten Abbiegung." /></div></div>
+          <div class="phone"><img loading="lazy" src="../captures/de/suivi.webp" width="520" height="1129" alt="Screenshot der App: einem Track auf der Karte folgen, mit der nächsten Abbiegung, dem Kurs und der Reststrecke." /></div>
+        </div>
+        <p class="credit">Karte: © <a href="https://openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a> © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap-Mitwirkende</a>. Relief: Mapzen Terrain Tiles.</p>
+      </div>
+      <div class="txt-col">
+        <div class="num" aria-hidden="true"><b>03</b><span>KM <i data-km>—</i></span></div>
+        <div class="tile">
+          <div class="rb" aria-hidden="true"><svg class="tulip" viewBox="0 0 40 40"><circle cx="20" cy="35" r="3"/><path d="M20 35 L20 8 M14 14 L20 8 L26 14"/></svg><div class="rb-cap"><small>KURS</small><span data-cap>180°</span></div><span class="surf" style="--c:#7CB342">Verdichtete Piste</span></div>
+          <h3>Dem Track folgen</h3>
+          <p>Folge deinem Track auf dem Bildschirm, mit Sprachansagen. Kommst du vom Track ab, zeigt dir auf der Karte eine gerade Linie zur Orientierung den nächstgelegenen Punkt. Anpassbare Anzeigen (Infos, Ton, Hoch- oder Querformat), Route zum Start in deiner Navigations-App: Prüfe, ob sie für Motorräder freigegeben ist.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wp" data-surf="sentier">
+      <div class="shot-col">
+        <div class="shot" data-wp><div class="phone"><img loading="lazy" src="../captures/de/sortie-libre.webp" width="520" height="1129" alt="Screenshot der App: eine freie Fahrt während der Aufzeichnung, mit gefahrener Strecke und Kurs." /></div></div>
+        <p class="credit">Karte: © <a href="https://openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a> © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap-Mitwirkende</a>. Relief: Mapzen Terrain Tiles.</p>
+      </div>
+      <div class="txt-col">
+        <div class="num" aria-hidden="true"><b>04</b><span>KM <i data-km>—</i></span></div>
+        <div class="tile">
+          <div class="rb" aria-hidden="true"><svg class="tulip" viewBox="0 0 40 40"><circle cx="20" cy="35" r="3"/><path d="M20 35 L20 8 M14 14 L20 8 L26 14"/></svg><div class="rb-cap"><small>KURS</small><span data-cap>180°</span></div><span class="surf" style="--c:#7CB342">Verdichtete Piste</span></div>
+          <h3>Freie Fahrt und Aufzeichnung</h3>
+          <p>Starte ohne Track, zeichne deine Tour auf und veröffentliche sie dann für die Community oder behalte sie privat unter Meine Tracks.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wp" data-surf="piste">
+      <div class="shot-col">
+        <div class="shot" data-wp><div class="phone"><img loading="lazy" src="../captures/de/social.webp" width="520" height="1129" alt="Screenshot der App: der soziale Feed mit einem Beitrag und Fotos." /></div></div>
+      </div>
+      <div class="txt-col">
+        <div class="num" aria-hidden="true"><b>05</b><span>KM <i data-km>—</i></span></div>
+        <div class="tile">
+          <div class="rb" aria-hidden="true"><svg class="tulip" viewBox="0 0 40 40"><circle cx="20" cy="35" r="3"/><path d="M20 35 L20 8 M14 14 L20 8 L26 14"/></svg><div class="rb-cap"><small>KURS</small><span data-cap>180°</span></div><span class="surf" style="--c:#7CB342">Verdichtete Piste</span></div>
+          <h3>Sozialer Feed &amp; Events</h3>
+          <p>Erzähle deine Touren in Fotos, folge anderen Fahrern, organisiere Events oder nimm daran teil, öffentlich oder auf Einladung.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wp" data-surf="route">
+      <div class="shot-col">
+        <div class="shot" data-wp><div class="phone"><img loading="lazy" src="../captures/groupe.webp" width="520" height="1130" alt="Screenshot der App: eine Tourgruppe mit der Position der Mitfahrer auf der Karte (Screenshot auf Französisch)." /></div></div>
+        <p class="credit">Karte: © <a href="https://openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a> © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap-Mitwirkende</a>.</p>
+      </div>
+      <div class="txt-col">
+        <div class="num" aria-hidden="true"><b>06</b><span>KM <i data-km>—</i></span></div>
+        <div class="tile">
+          <div class="rb" aria-hidden="true"><svg class="tulip" viewBox="0 0 40 40"><circle cx="20" cy="35" r="3"/><path d="M20 35 L20 8 M14 14 L20 8 L26 14"/></svg><div class="rb-cap"><small>KURS</small><span data-cap>180°</span></div><span class="surf" style="--c:#7CB342">Verdichtete Piste</span></div>
+          <h3>Tourgruppe</h3>
+          <p>Fahrt gemeinsam: die Live-Position deiner Mitfahrer auf der Karte während der Tour.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wp" data-surf="gravier">
+      <div class="shot-col">
+        <div class="shot" data-wp><div class="phone"><img loading="lazy" src="../captures/de/notifications.webp" width="520" height="1130" alt="Screenshot der App: der Tab „Mitteilungen“ mit Zugang zu den Nachrichten, einer Event-Einladung und einem neuen Follower." /></div></div>
+      </div>
+      <div class="txt-col">
+        <div class="num" aria-hidden="true"><b>07</b><span>KM <i data-km>—</i></span></div>
+        <div class="tile">
+          <div class="rb" aria-hidden="true"><svg class="tulip" viewBox="0 0 40 40"><circle cx="20" cy="35" r="3"/><path d="M20 35 L20 8 M14 14 L20 8 L26 14"/></svg><div class="rb-cap"><small>KURS</small><span data-cap>180°</span></div><span class="surf" style="--c:#7CB342">Verdichtete Piste</span></div>
+          <h3>Nachrichten &amp; Mitteilungen</h3>
+          <p>Private Nachrichten zwischen Fahrern, die sich gegenseitig folgen, Reaktionen, Kommentare, Einladungen: alles in einem Tab.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wp" data-surf="terre">
+      <div class="shot-col">
+        <div class="shot" data-wp><div class="phone"><img loading="lazy" src="../captures/de/hors-ligne.webp" width="520" height="1129" alt="Screenshot der App: Offline-Karten nach Regionen, mit dem Speicher des Telefons." /></div></div>
+      </div>
+      <div class="txt-col">
+        <div class="num" aria-hidden="true"><b>08</b><span>KM <i data-km>—</i></span></div>
+        <div class="tile">
+          <div class="rb" aria-hidden="true"><svg class="tulip" viewBox="0 0 40 40"><circle cx="20" cy="35" r="3"/><path d="M20 35 L20 8 M14 14 L20 8 L26 14"/></svg><div class="rb-cap"><small>KURS</small><span data-cap>180°</span></div><span class="surf" style="--c:#7CB342">Verdichtete Piste</span></div>
+          <h3>Offline-Karten <span class="premium-tag">Premium</span></h3>
+          <p>Die ganze Welt nach Regionen, der angezeigte Bereich oder die Karte entlang eines Tracks, um ohne Netz zu fahren. In Frankreich Satellit offline (IGN-Bilder).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wp wide" data-surf="piste">
+      <div class="shot-col">
+        <div class="shot fan" data-wp>
+          <div class="phone"><img loading="lazy" src="../captures/langue-fr.webp" width="360" height="782" alt="Screenshot der App auf Französisch." /></div>
+          <div class="phone"><img loading="lazy" src="../captures/langue-en.webp" width="360" height="782" alt="Screenshot der App auf Englisch." /></div>
+          <div class="phone"><img loading="lazy" src="../captures/langue-de.webp" width="360" height="782" alt="Screenshot der App auf Deutsch." /></div>
+          <div class="phone"><img loading="lazy" src="../captures/langue-it.webp" width="360" height="782" alt="Screenshot der App auf Italienisch." /></div>
+          <div class="phone"><img loading="lazy" src="../captures/langue-es.webp" width="360" height="782" alt="Screenshot der App auf Spanisch." /></div>
+        </div>
+      </div>
+      <div class="txt-col">
+        <div class="num" aria-hidden="true"><b>09</b><span>KM <i data-km>—</i></span></div>
+        <div class="tile">
+          <div class="rb" aria-hidden="true"><svg class="tulip" viewBox="0 0 40 40"><circle cx="20" cy="35" r="3"/><path d="M20 35 L20 8 M14 14 L20 8 L26 14"/></svg><div class="rb-cap"><small>KURS</small><span data-cap>180°</span></div><span class="surf" style="--c:#7CB342">Verdichtete Piste</span></div>
+          <h3>In 5 Sprachen verfügbar</h3>
+          <p>Französisch, Englisch, Spanisch, Italienisch, Deutsch – zum Fahren und Teilen, wo immer du in Europa bist.</p>
+          <div class="langs">
+            <span class="lang-chip">🇫🇷 Français</span>
+            <span class="lang-chip">🇬🇧 English</span>
+            <span class="lang-chip">🇪🇸 Español</span>
+            <span class="lang-chip">🇮🇹 Italiano</span>
+            <span class="lang-chip">🇩🇪 Deutsch</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section id="premium" class="wrap">
+    <div class="head tile reveal">
+      <span class="eyebrow">Premium</span>
+      <h2>Was Premium hinzufügt</h2>
+      <p>Was das Premium-Abo hinzufügt, nicht mehr und nicht weniger. Der Rest der App ist kostenlos.</p>
+    </div>
+    <div class="premium-grid" data-leg>
+      <div class="premium-shot">
+        <div class="shot" data-wp><div class="phone"><img loading="lazy" src="../captures/de/assistants.webp" width="520" height="1129" alt="Screenshot der App: der Assistent „Automatische Rundtour“ des Editors, der drei Runden vorschlägt." /></div></div>
+        <p class="credit">Karte: © <a href="https://openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a> © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap-Mitwirkende</a>. Relief: Mapzen Terrain Tiles.</p>
+      </div>
+      <div class="premium-box tile reveal">
+        <ul class="premium-list">
+          <li><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Unbegrenzte GPX-Downloads</b><span>Ohne Premium: 5 pro Monat.</span></div></li>
+          <li><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Unbegrenzte Beiträge</b><span>Im sozialen Feed, mit Fotos.</span></div></li>
+          <li><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Unbegrenzte Events</b><span>Organisiere so viele Touren, wie du willst, öffentlich oder auf Einladung.</span></div></li>
+          <li><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Offline-Karten</b><span>Die ganze Welt nach Regionen, der angezeigte Bereich oder die Karte entlang eines Tracks. In Frankreich Satellit offline (IGN-Bilder).</span></div></li>
+          <li><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Assistenten des Track-Editors</b><span>Automatische Runde, Übernahme eines Abschnitts eines Community-Tracks (stammt er von einem anderen Fahrer, bleibt dein Track privat), Tankstellen, Reichweite und Etappen auf deiner Route, typisierte Punkte (Biwak, Tanken, Aussicht, Treffpunkt) mit GPS-Symbol.</span></div></li>
+          <li><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><div><b>Premium-Abzeichen auf deinem Profil</b><span>Für alle sichtbar, auch ohne Konto, auf deinem Profil und in Listen.</span></div></li>
+        </ul>
+      </div>
+      <div class="premium-aside tile reveal">
+        <h3>Und der Rest?</h3>
+        <p>Alles andere in ADVMAP ist kostenlos: die Karte und die Tracks der Community, der Track-Editor, das Folgen eines Tracks, das Aufzeichnen deiner Touren, die Tourgruppe, der Feed und die Events.</p>
+        <div>
+          <p>Das Abo schließt du in der App über den App Store ab (bald auch über Google Play) und kannst es jederzeit in deinem Store-Konto kündigen. Die Preise werden in der App in deiner Währung angezeigt.</p>
+          <p class="premium-note">Die Grenzen ohne Premium und die Details zu jedem Vorteil stehen in der App, im Bildschirm „Premium“.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="infos">
+    <div class="head tile reveal">
+      <span class="eyebrow">Infos</span>
+      <h2>Datenschutz &amp; Support</h2>
+      <p>Diese Seiten sind auf Englisch.</p>
+    </div>
+    <div class="link-cards">
+      <a class="link-card tile" href="../terms.en.html"><span><span class="row-title">Nutzungsbedingungen</span><br><span class="row-sub">Die Regeln, und wer auf der Straße verantwortlich bleibt</span></span><span class="arrow">→</span></a>
+      <a class="link-card tile" href="../privacy.en.html"><span><span class="row-title">Datenschutzerklärung</span><br><span class="row-sub">Wie deine Daten verwendet werden</span></span><span class="arrow">→</span></a>
+      <a class="link-card tile" href="mailto:advmap@sisilab.app"><span><span class="row-title">Support &amp; Kontakt</span><br><span class="row-sub">advmap@sisilab.app</span></span><span class="arrow">→</span></a>
+      <a class="link-card tile" href="../legal-notice.en.html"><span><span class="row-title">Impressum</span><br><span class="row-sub">Herausgeber, Hosting, Kontakt</span></span><span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <section class="finish wrap">
+    <div class="pin end" data-wp><i></i><b>Ziel</b><span>KM <span data-total>63,8</span></span></div>
+    <img class="word" src="../advmap-wordmark.svg" width="1736" height="160" alt="ADVMAP" />
+    <p>Im App Store erhältlich</p>
+    <a class="store-badge js-store" href="https://apps.apple.com/fr/app/advmap/id6806682833">
+      <img src="../badges/app-store-de.svg" alt="Laden im App Store" />
+    </a>
+    <p class="hero-note">Auf iPhone und iPad, in der Europäischen Union, der Schweiz, Norwegen und Island.<br>Bald auch für Android.</p>
+    <div class="profile" id="profile" aria-hidden="true"></div>
+    <div class="profile-cap" aria-hidden="true"><span>Start</span><span>Profil der Seite</span><span>Ziel</span></div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="fmark"><img src="data:image/png;base64,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" alt="" /> ADVMAP <span class="dot-sep"></span> SiSiLab</div>
+    <p class="flinks"><a href="../terms.en.html">AGB (auf Englisch)</a><a href="../privacy.en.html">Datenschutz (auf Englisch)</a><a href="../legal-notice.en.html">Impressum (auf Englisch)</a><a href="mailto:advmap@sisilab.app">Kontakt</a></p>
+    <p class="flinks"><a href="../?lang=fr" lang="fr" hreflang="fr">Français</a><a href="../en/" lang="en" hreflang="en">English</a><a href="../es/" lang="es" hreflang="es">Español</a><a href="../it/" lang="it" hreflang="it">Italiano</a><a href="./" lang="de" hreflang="de" aria-current="page">Deutsch</a></p>
+    <p>© 2026 SiSiLab. Alle Rechte vorbehalten.</p>
+    <p class="small">Screenshots der App. Kartendaten © <a href="https://openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a> © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap-Mitwirkende</a> (ODbL). Relief und Höhenlinien: Mapzen Terrain Tiles (USGS, Copernicus und weitere Quellen, siehe <a href="../legal-notice.en.html">Impressum</a>, auf Englisch). Der Hintergrund dieser Seite und der Track, der sie durchquert, sind Zeichnungen, keine Karte. Einige Screenshots wurden mit Demo-Konten erstellt.</p>
+    <p class="small marks">Apple, das Apple-Logo, iPhone und iPad sind Marken der Apple Inc., die in den USA und weiteren Ländern eingetragen sind. App Store ist eine Dienstleistungsmarke der Apple Inc.</p>
+  </div>
+</footer>
+
+<div class="hud" id="hud" aria-hidden="true">
+  <div class="hud-tile"><span>Gefahren</span><b id="hud-km">0,0</b><i>km</i></div>
+  <div class="hud-tile"><span>Kurs</span><b id="hud-cap">180°</b></div>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  root.classList.add('js');
+
+  // Lien App Store : l'app n'est pas vendue partout, on vise le pays du visiteur s'il est dans la liste, sinon la France.
+  (function () {
+    var countries = ['at','be','bg','hr','cy','cz','dk','ee','fi','fr','de','gr','hu','ie','it','lv','lt','lu','mt','nl','pl','pt','ro','sk','si','es','se','no','is','ch'];
+    var tags = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'fr']);
+    var country = 'fr';
+    for (var i = 0; i < tags.length; i++) {
+      var region = String(tags[i]).split('-')[1];
+      if (region && countries.indexOf(region.toLowerCase()) !== -1) { country = region.toLowerCase(); break; }
+    }
+    var links = document.querySelectorAll('.js-store');
+    for (var j = 0; j < links.length; j++) links[j].href = 'https://apps.apple.com/' + country + '/app/advmap/id6806682833';
+  })();
+
+  var langMenu = document.querySelector('.lang');
+  document.addEventListener('click', function (e) { if (langMenu && langMenu.open && !langMenu.contains(e.target)) langMenu.open = false; });
+
+  var nav = document.getElementById('nav');
+  var route = document.getElementById('route');
+  var svg = document.getElementById('trace');
+  var hud = document.getElementById('hud');
+  var hudKm = document.getElementById('hud-km');
+  var hudCap = document.getElementById('hud-cap');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var NS = 'http://www.w3.org/2000/svg';
+  var KM = 63.8;                       // longueur affichée de la « trace » de la page
+  var COLORS = { route: '#3B9BE8', piste: '#7CB342', gravier: '#E8B93A', terre: '#FF6A00', sentier: '#E0524F' };
+  var NAMES = {"route": "Glatte Straße", "piste": "Verdichtete Piste", "gravier": "Schotter", "terre": "Erde", "sentier": "Pfad"};
+  var DEC = ',';
+
+  // Apparition des téléphones et des tuiles.
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.18 });
+    document.querySelectorAll('.shot, .reveal').forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll('.shot, .reveal').forEach(function (el) { el.classList.add('in'); });
+  }
+
+  if (!svg.getTotalLength && !document.createElementNS(NS, 'path').getTotalLength) return;
+
+  var state = { legs: [], full: null, total: 0, samples: [], anchors: [], rider: null, cur: 0, goal: 0, raf: 0 };
+
+  function place(el) { // position dans #route, sans tenir compte des rotations
+    var x = 0, y = 0, e = el;
+    while (e && e !== route) { x += e.offsetLeft; y += e.offsetTop; e = e.offsetParent; }
+    return { x: x, y: y, w: el.offsetWidth, h: el.offsetHeight };
+  }
+  function fmt(n) { return n.toFixed(1).replace('.', DEC); }
+  function heading(a, b) { var d = Math.atan2(b[0] - a[0], -(b[1] - a[1])) * 180 / Math.PI; return (d + 360) % 360; }
+  function el(name, attrs) { var n = document.createElementNS(NS, name); for (var k in attrs) n.setAttribute(k, attrs[k]); return n; }
+
+  function build() {
+    var W = route.offsetWidth, H = route.offsetHeight;
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    var edge = Math.max(16, W * 0.05);
+
+    var anchors = [].map.call(route.querySelectorAll('[data-wp]'), function (node) {
+      var p = place(node), sec = node.closest('.wp, [data-leg]'), floor = p.y + p.h;
+      if (sec) { var s = place(sec); floor = Math.max(floor, s.y + s.h); }
+      return { node: node, sec: node.closest('.wp'), x: p.x + p.w / 2, y: p.y + p.h / 2, top: p.y, bottom: p.y + p.h, floor: floor };
+    });
+
+    // Points de passage : le centre de chaque capture, et un lacet dans chaque intervalle.
+    var pts = [], at = [];
+    anchors.forEach(function (a, i) {
+      at.push(pts.length); pts.push([a.x, a.y]);
+      var b = anchors[i + 1]; if (!b) return;
+      var gap = b.top - a.floor;
+      if (a.bottom + 18 < b.top - 30) pts.push([a.x, a.bottom + 18]);
+      if (gap > 70) {
+        var side = b.x < W / 2 ? W - edge : edge;
+        if (Math.abs(b.x - W / 2) < W * 0.08) side = i % 2 ? edge : W - edge;
+        pts.push([side, a.floor + gap * 0.5]);
+      }
+      pts.push([b.x, b.top - 18]);
+    });
+
+    function curve(i) { // Catmull-Rom vers Bézier
+      var p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2, k = 1 / 6;
+      return 'C' + (p1[0] + (p2[0] - p0[0]) * k).toFixed(1) + ' ' + (p1[1] + (p2[1] - p0[1]) * k).toFixed(1) + ' ' +
+        (p2[0] - (p3[0] - p1[0]) * k).toFixed(1) + ' ' + (p2[1] - (p3[1] - p1[1]) * k).toFixed(1) + ' ' + p2[0].toFixed(1) + ' ' + p2[1].toFixed(1);
+    }
+    var legsD = [], fullD = '';
+    for (var i = 0; i < anchors.length - 1; i++) {
+      var d = '';
+      for (var s = at[i]; s < at[i + 1]; s++) d += curve(s);
+      legsD.push('M' + pts[at[i]][0].toFixed(1) + ' ' + pts[at[i]][1].toFixed(1) + d);
+      fullD += (i ? '' : 'M' + pts[0][0].toFixed(1) + ' ' + pts[0][1].toFixed(1)) + d;
+    }
+
+    var full = el('path', { 'class': 'planned', d: fullD });
+    svg.appendChild(full);
+    var legs = [], cum = 0;
+    legsD.forEach(function (d, i) {
+      var surf = (anchors[i].sec && anchors[i].sec.getAttribute('data-surf')) || (i ? 'terre' : 'route');
+      var casing = el('path', { 'class': 'casing', d: d }), leg = el('path', { 'class': 'leg', d: d, stroke: COLORS[surf] });
+      svg.appendChild(casing); svg.appendChild(leg);
+      var len = leg.getTotalLength();
+      legs.push({ casing: casing, leg: leg, len: len, start: cum });
+      cum += len;
+    });
+    var rider = el('g', { id: 'rider' });
+    rider.appendChild(el('circle', { r: 17 }));
+    rider.appendChild(el('path', { d: 'M0 -12 L9 10 L0 5 L-9 10 Z' }));
+    svg.appendChild(rider);
+
+    var total = full.getTotalLength(), samples = [], top = -1e9, step = 10;
+    for (var l = 0; l <= total; l += step) { var p = full.getPointAtLength(l); top = Math.max(top, p.y); samples.push(top); }
+
+    // Le roadbook : kilomètre, cap et virage de chaque étape, lus sur la trace elle-même.
+    anchors.forEach(function (a, i) {
+      a.len = i < legs.length ? legs[i].start : total;
+      if (!a.sec) return;
+      var km = a.sec.querySelector('[data-km]'); if (km) km.textContent = fmt(a.len / total * KM);
+      var here = pts[at[i]], before = pts[at[i] - 2] || pts[at[i] - 1], after = pts[at[i] + 2] || pts[at[i] + 1];
+      var out = heading(here, after), turn = ((out - heading(before, here) + 540) % 360) - 180;
+      var cap = a.sec.querySelector('[data-cap]'); if (cap) cap.textContent = ('00' + Math.round(out)).slice(-3) + '°';
+      var t = a.sec.querySelector('.tulip path');
+      if (t) {
+        var ang = Math.max(-125, Math.min(125, turn)) * Math.PI / 180, x = 20 + 13 * Math.sin(ang), y = 21 - 13 * Math.cos(ang);
+        var hx = Math.sin(ang), hy = -Math.cos(ang);
+        t.setAttribute('d', 'M20 35 L20 21 L' + x.toFixed(1) + ' ' + y.toFixed(1) +
+          ' M' + (x - 5 * hx - 4 * hy).toFixed(1) + ' ' + (y - 5 * hy + 4 * hx).toFixed(1) + ' L' + x.toFixed(1) + ' ' + y.toFixed(1) +
+          ' L' + (x - 5 * hx + 4 * hy).toFixed(1) + ' ' + (y - 5 * hy - 4 * hx).toFixed(1));
+      }
+      var surf = a.sec.getAttribute('data-surf'), label = a.sec.querySelector('.surf');
+      if (label) { label.textContent = NAMES[surf]; label.style.setProperty('--c', COLORS[surf]); }
+    });
+
+    // Le profil : l'écart de la trace par rapport au milieu de la page, comme un relief.
+    var prof = document.getElementById('profile');
+    if (prof) {
+      var bars = 56, html = '', prev = null, dev = function (f) { return Math.abs(full.getPointAtLength(total * Math.max(0, Math.min(1, f))).x - W / 2) / (W / 2 - edge + 1); };
+      for (var b = 0; b < bars; b++) {
+        var f0 = (b + 0.5) / bars, h = 18 + 82 * (dev(f0 - 0.012) + dev(f0) + dev(f0 + 0.012)) / 3;
+        var slope = prev === null ? 0 : Math.abs(h - prev); prev = h;
+        var c = slope < 5 ? COLORS.piste : slope < 11 ? COLORS.gravier : slope < 20 ? COLORS.terre : COLORS.sentier;
+        html += '<i style="height:' + Math.min(100, h).toFixed(0) + '%;--c:' + c + '"></i>';
+      }
+      prof.innerHTML = html;
+    }
+
+    state.legs = legs; state.full = full; state.total = total; state.samples = samples; state.step = step;
+    state.anchors = anchors; state.rider = rider;
+    state.cur = -1; measure(true);
+  }
+
+  function measure(jump) {
+    var top = -route.getBoundingClientRect().top;
+    nav.classList.toggle('scrolled', window.scrollY > 8);
+    var target = top + window.innerHeight * 0.56, s = state.samples, lo = 0, hi = s.length - 1;
+    while (lo < hi) { var mid = (lo + hi) >> 1; if (s[mid] < target) lo = mid + 1; else hi = mid; }
+    var goal = Math.min(state.total, lo * state.step);
+    if (s.length && s[s.length - 1] < target) goal = state.total;
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 6) goal = state.total;
+    if (reduce) goal = state.total;
+    state.goal = goal;
+    if (jump || reduce) { state.cur = goal; draw(); } else if (!state.raf) state.raf = requestAnimationFrame(tick);
+  }
+  function tick() {
+    state.raf = 0;
+    var diff = state.goal - state.cur;
+    if (Math.abs(diff) < 0.6) { state.cur = state.goal; draw(); return; }
+    state.cur += diff * 0.2; draw();
+    state.raf = requestAnimationFrame(tick);
+  }
+  function draw() {
+    var L = state.cur, total = state.total;
+    state.legs.forEach(function (g) {
+      var d = Math.max(0, Math.min(g.len, L - g.start)), v = d.toFixed(1) + ' ' + (g.len + 20).toFixed(1);
+      g.leg.style.strokeDasharray = v; g.casing.style.strokeDasharray = v;
+      g.leg.style.visibility = g.casing.style.visibility = d > 0.5 ? 'visible' : 'hidden';
+    });
+    var p = state.full.getPointAtLength(L), q = state.full.getPointAtLength(Math.min(total, L + 4)), o = state.full.getPointAtLength(Math.max(0, L - 4));
+    var cap = heading([o.x, o.y], [q.x, q.y]);
+    state.rider.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ' ' + p.y.toFixed(1) + ') rotate(' + cap.toFixed(1) + ')');
+    state.rider.style.display = reduce ? 'none' : '';
+    hudKm.textContent = fmt(L / total * KM);
+    hudCap.textContent = ('00' + Math.round(cap)).slice(-3) + '°';
+    hud.classList.toggle('on', !reduce && L > 40 && L < total - 30);
+    var last = null;
+    state.anchors.forEach(function (a) {
+      if (!a.sec) return;
+      var done = L >= a.len - 2;
+      a.sec.classList.toggle('passed', done); a.sec.classList.remove('current');
+      if (done) last = a.sec;
+    });
+    if (last && L < total - 2) last.classList.add('current');
+  }
+
+  var timer = 0;
+  function rebuild() { clearTimeout(timer); timer = setTimeout(build, 120); }
+  build();
+  window.addEventListener('scroll', function () { measure(false); }, { passive: true });
+  window.addEventListener('resize', rebuild);
+  window.addEventListener('load', build);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(build);
+  if ('ResizeObserver' in window) { var h0 = route.offsetHeight; new ResizeObserver(function () { if (Math.abs(route.offsetHeight - h0) > 4) { h0 = route.offsetHeight; rebuild(); } }).observe(route); }
+})();
+</script>
+</body>
+</html>
